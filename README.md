@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Astrah OS | Technical Execution Demo
+This repository serves as a high-fidelity demonstration for the Astrah OS frontend architecture. It is built to exceed the "Linear/Deepgram" standard while maintaining enterprise-grade defensive patterns.
 
-## Getting Started
+#Tech Stack & Architecture
+Framework: Next.js 15 (App Router) with TypeScript.
 
-First, run the development server:
+Styling: Tailwind CSS using CSS Logical Properties (inline-start, ps-, me-) to ensure native, hack-free RTL support.
 
-```bash
+Motion: Framer Motion utilizing restrained, physics-based easing for an "Ambient OS" feel.
+
+Utilities: tailwind-merge and clsx for conflict-free, defensive class management.
+
+#Defensive Engineering Standards
+Drawing from my background in Security Research (CodeQL) and systems integrity, this demo implements the following "zero-trust" frontend patterns:
+
+Direction-Agnostic UI: No physical left or right properties are used. The system is architected to be culturally agnostic from the root.
+
+Magnetic Physics-Based UI: Interactive elements (Buttons) utilize useMotionValue and useSpring to create a "magnetic" attraction to the cursor, providing high-end haptic feedback.
+
+Environment Protection: Strict directory structuring to prevent accidental exposure of sensitive constants or .env variables.
+
+Naming Convention Rigor: Follows a strict feature-based modularity (@/components/hero, @/components/ui) to prevent "Spaghetti State" as the OS scales.
+
+Layout Stability: Implements optimized font-loading and aspect-ratio containment to ensure Zero Cumulative Layout Shift (CLS) during language toggling.
+
+#Performance & Craft
+60FPS Animations: All transitions occur on the GPU layer (transform/opacity) to ensure zero CPU jank, even on lower-end devices.
+
+Premium Micro-interactions: Includes "Shine" pass animations and spring-physics tapping feedback, mirroring the macOS/Linear feel.
+
+Optimized Typography: Custom tracking (tracking-tighter) and leading values calibrated for high-density "Retina" displays.
+
+#Getting Started
+To audit the codebase or run the high-fidelity demo locally:
+
+1. Clone the Repository
+Bash
+
+git clone url
+cd astrah-os-core-v1
+2. Install Dependencies
+Bash
+
+npm install
+3. Run Development Server
+Bash
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 to view the result.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#Architecture Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+src/
+├── app/            # Next.js 15 App Router (Server-first)
+├── components/
+│   ├── ui/        # Atomic components (Magnetic Buttons, Toggles)
+│   └── hero/      # Feature-specific layout modules
+├── lib/           # Defensive utilities (cn helper, logic)
+└── styles/        # Global CSS & Design System tokens
